@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #1d1d1d;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#app {
+    text-align: center;
+    background-color: #2b2b2b;
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px rgba(0, 255, 255, 0.2);
+    width: 80%;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: #00f7ff;
+    text-shadow: 0px 0px 8px rgba(0, 255, 255, 0.8);
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+#quests {
+    margin: 30px 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+    background-color: #333;
+    border-radius: 8px;
+    padding: 15px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+li:hover {
+    background-color: #444;
+    transform: scale(1.05);
+}
+
+button {
+    background-color: #00f7ff;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #00c2cc;
+    transform: scale(1.1);
+}
+
+#quest-form input {
+    padding: 10px;
+    border-radius: 6px;
+    margin: 10px;
+    border: 2px solid #00f7ff;
+    background-color: #333;
+    color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+#quest-form input:focus {
+    border-color: #00c2cc;
+}
+
+#reset-progress {
+    margin-top: 20px;
+}
