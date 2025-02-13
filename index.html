@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPG Quest Menu</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Quest Menu</h2>
+            <div class="button-container">
+                <button onclick="showSection('quests')">Available Quests</button>
+                <button onclick="showSection('add-quest')">Add Quest</button>
+                <button onclick="showSection('actions')">Actions</button>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <header>
+                <h1>RPG Quest Menu</h1>
+                <div class="player-info">
+                    <p>Player Level: <span id="level">{{ player[0] }}</span></p>
+                    <p>EXP: <span id="exp">{{ player[1] }}</span></p>
+                </div>
+            </header>
+            
+            <section class="quests" id="quests">
+                <h2>Available Quests</h2>
+                <ul>
+                    {% for quest in quests %}
+                        <li>
+                            <span class="quest-name">{{ quest[1] }}</span> - <span class="quest-exp">{{ quest[2] }} EXP</span>
+                            <a href="/complete_quest/{{ quest[0] }}" class="btn complete-btn">Complete</a>
+                            <a href="/delete_quest/{{ quest[0] }}" class="btn delete-btn">Delete</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </section>
+            
+            <section class="add-quest hidden" id="add-quest">
+                <h2>Add a New Quest</h2>
+                <form action="/add_quest" method="POST">
+                    <input type="text" name="name" placeholder="Quest Name" required>
+                    <input type="number" name="exp_reward" placeholder="EXP Reward" required>
+                    <button type="submit" class="btn add-btn">Add Quest</button>
+                </form>
+            </section>
+            
+            <section class="actions hidden" id="actions">
+                <h2>Actions</h2>
+                <a href="/reset_player" class="btn reset-btn">Reset Player Progress</a>
+            </section>
+        </div>
+    </div>
+    
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.main-content section').forEach(section => section.classList.add('hidden'));
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
